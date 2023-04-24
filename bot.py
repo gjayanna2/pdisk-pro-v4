@@ -112,7 +112,7 @@ async def pdisk_up(link):
     if ('pdisk.pro' in link or 'wslinker' in link or 'cdinks' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link or 'vdshort' in link or link in 'vidrivers' or 'dplinks' in link):
       item_id = await get_pv_id(link)
       res = requests.get('http://linkapi.net/open/clone_item?item_id='+ item_id +'&api_key=' + PDISK_API_KEY)
-      v_url = 'https://pdisks.pro/share-video?videoid=' + dict(res.json())['data']['item_id']
+      v_url = 'https://pdisk.pro/share-video?videoid=' + dict(res.json())['data']['item_id']
     else:
       await bot.send_message(f'pdiisk is under upgrade wait for new updates...')
       return
