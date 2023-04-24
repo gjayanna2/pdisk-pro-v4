@@ -8,10 +8,10 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-API_ID = environ.get('API_ID')
-API_HASH = environ.get('API_HASH')
-BOT_TOKEN = environ.get('BOT_TOKEN')
-PDISK_API_KEY = environ.get('PDISK_API_KEY')
+API_ID = int(environ.get('API_ID','3393749'))
+API_HASH = environ.get('API_HASH','a15a5954a1db54952eebd08ea6c68b71')
+BOT_TOKEN = environ.get('BOT_TOKEN','1834175795:AAHMyQudBP_f4JVxbIwXSMD9u2OJ5hF8FLA')
+PDISK_API_KEY = environ.get('PDISK_API_KEY','https://pdisk.pro/api/account/info?key=702poxj1civobx9ydcs')
 THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/1181d9119a13988dfe29c.jpg')
 CHANNEL = environ.get('CHANNEL')
 bot = Client('pdisk bot',
@@ -26,7 +26,7 @@ bot = Client('pdisk bot',
 async def start(bot, message):
     await message.reply(
         f"**𝗛𝗘𝗟𝗟𝗢🎈{message.chat.first_name}!**\n\n"
-        "𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭... \n 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @ParitoshPky_Official💖")
+        "𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭... \n 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @💖")
 
 
 @bot.on_message(filters.text & filters.private)
@@ -109,12 +109,12 @@ async def get_pv_id(url):
 
 #temporary till upload not works...
 async def pdisk_up(link):
-    if ('pdisk' in link or 'wslinker' in link or 'cdinks' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link or 'vdshort' in link or link in 'vidrivers' or 'dplinks' in link):
+    if ('pdisk.pro' in link or 'wslinker' in link or 'cdinks' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link or 'vdshort' in link or link in 'vidrivers' or 'dplinks' in link):
       item_id = await get_pv_id(link)
       res = requests.get('http://linkapi.net/open/clone_item?item_id='+ item_id +'&api_key=' + PDISK_API_KEY)
-      v_url = 'https://pdisks.com/share-video?videoid=' + dict(res.json())['data']['item_id']
+      v_url = 'https://pdisks.pro/share-video?videoid=' + dict(res.json())['data']['item_id']
     else:
-      await bot.send_message(f'pdiisk is under upgrade wait for new updates... contact me @ParitoshPky_Official')
+      await bot.send_message(f'pdiisk is under upgrade wait for new updates...')
       return
     return (v_url)
 
