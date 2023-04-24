@@ -11,7 +11,7 @@ import re
 API_ID = int(environ.get('API_ID','3393749'))
 API_HASH = environ.get('API_HASH','a15a5954a1db54952eebd08ea6c68b71')
 BOT_TOKEN = environ.get('BOT_TOKEN','1834175795:AAHMyQudBP_f4JVxbIwXSMD9u2OJ5hF8FLA')
-PDISK_API_KEY = environ.get('PDISK_API_KEY','https://pdisk.pro/api/account/info?key=702poxj1civobx9ydcs')
+PDISK_API_KEY = environ.get('PDISK_API_KEY','702poxj1civobx9ydcs')
 THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/1181d9119a13988dfe29c.jpg')
 CHANNEL = environ.get('CHANNEL')
 bot = Client('pdisk bot',
